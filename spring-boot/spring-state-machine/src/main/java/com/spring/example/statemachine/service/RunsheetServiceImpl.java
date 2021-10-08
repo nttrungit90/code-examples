@@ -3,6 +3,7 @@ package com.spring.example.statemachine.service;
 import com.spring.example.statemachine.domain.Runsheet;
 import com.spring.example.statemachine.domain.RunsheetEvent;
 import com.spring.example.statemachine.domain.RunsheetStatus;
+import com.spring.example.statemachine.logging.LogExecutionTime;
 import com.spring.example.statemachine.repository.RunsheetRepository;
 import com.spring.example.statemachine.statemachine.RunsheetStateChangeInterceptor;
 import lombok.RequiredArgsConstructor;
@@ -32,6 +33,7 @@ public class RunsheetServiceImpl implements RunsheetService{
     @Override
     public Runsheet dispatchRunsheet(Long courierId) {
 
+        te();
         Runsheet runsheet = Runsheet.builder()
             .status(RunsheetStatus.DISPATCHED)
             .courierId(courierId)
@@ -40,6 +42,10 @@ public class RunsheetServiceImpl implements RunsheetService{
         return runsheetRepository.saveAndFlush(runsheet);
     }
 
+    @LogExecutionTime
+    private void te() {
+
+    }
     @Override
     public void checkoutRunsheet(Long runsheetId) {
 
@@ -84,6 +90,7 @@ public class RunsheetServiceImpl implements RunsheetService{
         log.info("send event result {}", accepted);
     }
 
+    @LogExecutionTime
     private StateMachine<RunsheetStatus, RunsheetEvent> build(Runsheet runsheet){
 
         StateMachine<RunsheetStatus, RunsheetEvent> sm = runsheetStateMachineFactory.getStateMachine(runsheet.getId().toString());
