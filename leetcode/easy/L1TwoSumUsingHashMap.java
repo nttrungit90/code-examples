@@ -6,7 +6,7 @@ public class L1TwoSumUsingHashMap {
 
     /**
      * https://leetcode.com/problems/two-sum/?envType=study-plan-v2&envId=top-interview-150
-     *
+     * This solution using Single-Pass Hash Table. Two-Pass Hash Table is also ok and more easier to understand.
      */
     public int[] twoSumUsingHashMap(int[] nums, int target) {
 

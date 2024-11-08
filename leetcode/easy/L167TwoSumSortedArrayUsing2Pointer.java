@@ -90,7 +90,7 @@ public class L167TwoSumSortedArrayUsing2Pointer {
     }
 
     /**
-     * Find the closest pair from 1 sorted arrays
+     * Find the closest pair from 2 sorted arrays
      * https://www.geeksforgeeks.org/given-two-sorted-arrays-number-x-find-pair-whose-sum-closest-x/
      * Given two sorted arrays arr1[0…m-1] and arr2[0..n-1], and a number x,
      * the task is to find the pair arr1[i] + arr2[j] such that absolute value of (arr1[i] + arr2[j] – x) is minimum.
@@ -112,7 +112,7 @@ public class L167TwoSumSortedArrayUsing2Pointer {
         int[] result = new int[2];
 
         // Iterate through the array until the pointers meet
-        while (left < right) {
+        while (left < nums1.length && right >= 0) {
             // Calculate the sum of the current pair
             int sum = nums1[left] + nums2[right];
 
