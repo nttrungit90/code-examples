@@ -54,7 +54,7 @@ public class L167TwoSumSortedArrayUsing2Pointer {
         int right = nums.length - 1;
 
         // Initialize variables to track the closest sum and indices of the closest pair
-        int closestSum = Integer.MAX_VALUE;
+        int minDiff = Integer.MAX_VALUE;
         int[] result = new int[2];
 
         // Iterate through the array until the pointers meet
@@ -66,8 +66,8 @@ public class L167TwoSumSortedArrayUsing2Pointer {
             int diff = Math.abs(sum - target);
 
             // Update the closest sum and indices if the current sum is closer to the target
-            if (diff < Math.abs(closestSum - target)) {
-                closestSum = sum;
+            if (diff < minDiff) {
+                minDiff = diff;
                 result[0] = left;
                 result[1] = right;
             }
@@ -108,7 +108,7 @@ public class L167TwoSumSortedArrayUsing2Pointer {
         int right = nums2.length - 1;
 
         // Initialize variables to track the closest sum and indices of the closest pair
-        int closestSum = Integer.MAX_VALUE;
+        int minDiff = Integer.MAX_VALUE;
         int[] result = new int[2];
 
         // Iterate through the array until the pointers meet
@@ -120,8 +120,8 @@ public class L167TwoSumSortedArrayUsing2Pointer {
             int diff = Math.abs(sum - target);
 
             // Update the closest sum and indices if the current sum is closer to the target
-            if (diff < Math.abs(closestSum - target)) {
-                closestSum = sum;
+            if (diff < minDiff) {
+                minDiff = diff;
                 result[0] = left;
                 result[1] = right;
             }
