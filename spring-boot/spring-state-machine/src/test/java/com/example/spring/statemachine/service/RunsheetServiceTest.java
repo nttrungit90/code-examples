@@ -2,7 +2,7 @@ package com.example.spring.statemachine.service;
 
 import com.example.spring.statemachine.repository.RunsheetRepository;
 import com.example.spring.statemachine.domain.Runsheet;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,7 +23,7 @@ class RunsheetServiceTest {
 		Long courierId = 6L;
 		Runsheet runsheet = runsheetService.dispatchRunsheet(courierId);
 		Runsheet dbRunsheet = runsheetRepository.findById(runsheet.getId()).orElse(null);
-		Assert.assertNotNull(dbRunsheet);
+		Assertions.assertNotNull(dbRunsheet);
 	}
 
 }
