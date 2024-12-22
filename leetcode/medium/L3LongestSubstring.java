@@ -8,6 +8,43 @@ import java.util.Set;
 public class L3LongestSubstring {
 
     /**
+     * Problem: Function to find the length of the longest
+     * substring without repeating characters
+     *
+     * Solution: Start the outer loop from the beginning of the string.
+     * For each starting index, use an inner loop to find the longest substring starting at that index.
+     * Use a Set to detect repeated characters efficiently.
+     * Update the maximum length when a valid substring is found.
+     */
+    static int lengthOfLongestSubstring(String s) {
+        int maxLength = 0;
+
+        // Outer loop: starting index of the substring
+        for (int i = 0; i < s.length(); i++) {
+            Set<Character> seen = new HashSet<>();
+            int currentLength = 0;
+
+            // Inner loop: extend the substring
+            for (int j = i; j < s.length(); j++) {
+                char currentChar = s.charAt(j);
+
+                // If character is already in the set, break the inner loop
+                if (seen.contains(currentChar)) {
+                    break;
+                }
+
+                // Add the character to the set and update the current length
+                seen.add(currentChar);
+                currentLength++;
+            }
+
+            // Update the maximum length
+            maxLength = Math.max(maxLength, currentLength);
+        }
+
+        return maxLength;
+    }
+    /**
      * https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
      * https://www.youtube.com/watch?v=GS9TyovoU4c&t=705s
      * https://www.youtube.com/watch?v=pDsrfYcMvvY
@@ -41,7 +78,7 @@ public class L3LongestSubstring {
      * @param s
      * @return
      */
-    public int lengthOfLongestSubstring(String s) {
+    public int lengthOfLongestSubstringWithSlidingWindow(String s) {
 
         // Initialize the maximum length of the substring
         int maxLength = 0;
