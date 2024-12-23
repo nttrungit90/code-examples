@@ -99,7 +99,7 @@ public class L3LongestSubstring {
                 // Update the left pointer if it's less than the last occurrence of the current character
                 // in other words, the current char is in the map but it does not in the window
                 // we are processing [left, right], so we ignore it
-                if (left < visitedChars.get(currentChar) + 1) {
+                if (left < visitedChars.get(currentChar) + 1) { // 1,2,3,3,[4,5,6,2] 2 is in map but not in the current window
                     left = visitedChars.get(currentChar) + 1;
                 }
             }
