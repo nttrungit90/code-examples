@@ -21,8 +21,7 @@ public class CheckAnagram {
 
         // Create a hashmap to store character frequencies
         Map<Character, Integer> charCount = new HashMap<>();
-        int[] freq = new int[100];
-        freq[s1.charAt(1) - 'a']++;
+
         // Count frequency of each character in string s1
         for (char ch : s1.toCharArray())
             charCount.put(ch, charCount.getOrDefault(ch, 0) + 1);

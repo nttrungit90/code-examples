@@ -31,8 +31,7 @@ public class ChocolateDistribution {
             // calculate difference of current window
             int diff = arr[i + m - 1] - arr[i];
 
-            // if current difference is smaller
-            // then update the minimum difference
+            // if current difference is smaller then update the minimum difference
             if (diff < minDiff)
                 minDiff = diff;
         }
